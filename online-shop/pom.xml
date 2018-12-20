@@ -17,6 +17,13 @@
 
 	<dependencies>
 
+		<!-- Link to backend project -->
+		<dependency>
+			<groupId>com.savaleks</groupId>
+			<artifactId>shopbackend</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
 		<!-- JAVA EE API -->
 		<dependency>
 			<groupId>javax</groupId>
