@@ -1,7 +1,7 @@
-$(function(){
+$(function () {
     // solving the active menu problem
-    switch(menu){
-        
+    switch (menu) {
+
         case 'About us':
             $('#about').addClass('active');
             break;
@@ -10,9 +10,12 @@ $(function(){
             break;
         case 'All products':
             $('#productList').addClass('active');
-            break;  
+            break;
+        case 'Manage products':
+            $('#manageProducts').addClass('active');
+            break;
         default:
-            if(menu == "Home") break;
+            if (menu == "Home") break;
             $('#productList').addClass('active');
             $('#a_' + menu).addClass('active');
             break;
@@ -25,21 +28,24 @@ $(function(){
     var $table = $('#productListTable');
 
     // execute the below code only where we have this table
-    if($table.length){
+    if ($table.length) {
         //console.log('Inside the table.');
 
-     	var jsonUrl = '';
-		if (window.categoryId == '') {
-			jsonUrl = window.contextRoot + '/json/data/all/products';
-		} else {
-			jsonUrl = window.contextRoot + '/json/data/category/'
-					+ window.categoryId + '/products';
-		}
+        var jsonUrl = '';
+        if (window.categoryId == '') {
+            jsonUrl = window.contextRoot + '/json/data/all/products';
+        } else {
+            jsonUrl = window.contextRoot + '/json/data/category/' +
+                window.categoryId + '/products';
+        }
 
         $table.DataTable({
-            lengthMenu: [[3,5,10,-1],['3 Records', '5 Records', '10 Records', 'ALL']],
+            lengthMenu: [
+                [3, 5, 10, -1],
+                ['3 Records', '5 Records', '10 Records', 'ALL']
+            ],
             pageLength: 5,
-            
+
 
             ajax: {
                 url: jsonUrl,
@@ -49,8 +55,8 @@ $(function(){
 
                 {
                     data: 'code',
-                    mRender: function(data, type, row) {
-                        return '<img src="'+window.contextRoot+'/resources/images/'+data+'.jpg" style="width:100px;height:100px;"/>';
+                    mRender: function (data, type, row) {
+                        return '<img src="' + window.contextRoot + '/resources/images/' + data + '.jpg" style="width:100px;height:100px;"/>';
                     }
                 },
                 {
@@ -59,16 +65,16 @@ $(function(){
                 {
                     data: 'brand'
                 },
-                   {
+                {
                     data: 'unitPrice',
-                    mRender: function(data, type, row){
+                    mRender: function (data, type, row) {
                         return '&euro; ' + data
                     }
                 },
-                   {
+                {
                     data: 'quantity',
-                    mRender: function(data, type, row){
-                        if(data<1){
+                    mRender: function (data, type, row) {
+                        if (data < 1) {
                             return '<span style="color:red">Out of Stock</span>';
                         }
                         return data;
@@ -77,14 +83,14 @@ $(function(){
                 {
                     data: 'id',
                     bSortable: false,
-                    mRender: function(data, type, row){
+                    mRender: function (data, type, row) {
                         var str = '';
-                        str += '<a href="'+window.contextRoot+ '/show/'+data+'/product" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span></span></a> &#160;';
+                        str += '<a href="' + window.contextRoot + '/show/' + data + '/product" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span></span></a> &#160;';
 
-                        if(row.quantity<1){
-                             str += '<a href="javascript:void(0)" class="btn btn-success disabled"><span class="glyphicon glyphicon-shopping-cart"></span></span></a>';
+                        if (row.quantity < 1) {
+                            str += '<a href="javascript:void(0)" class="btn btn-success disabled"><span class="glyphicon glyphicon-shopping-cart"></span></span></a>';
                         } else {
-                            str += '<a href="'+window.contextRoot+ '/cart/add/'+data+'/product" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span></span></a>';
+                            str += '<a href="' + window.contextRoot + '/cart/add/' + data + '/product" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span></span></a>';
                         }
                         return str;
                     }
