@@ -23,13 +23,17 @@
 
 <script>
 	window.menu = '${title}';
+	window.contextRoot = '${contextRoot}'
 </script>
 
 <!-- Bootstrap core CSS -->
 <link href="${css}/bootstrap.css" rel="stylesheet">
 
-<!-- Bootstrap Spacelab theme -->
+<!-- Bootstrap Readable theme -->
 <link href="${css}/bootstrap-spacelab-theme.css" rel="stylesheet">
+
+<!-- Bootstrap DataTable -->
+<link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
 
 <!-- Add custom CSS here -->
 <link href="${css}/myapp.css" rel="stylesheet">
@@ -67,6 +71,11 @@
 			<c:if test="${userClickAllProducts == true or userClickCategoryProducts == true}">
 				<%@include file="productList.jsp"%>
 			</c:if>
+			
+			<!-- Load when user clicks show product -->
+			<c:if test="${userClickShowProduct == true}">
+				<%@include file="singleProduct.jsp"%>
+			</c:if>
 
 		</div>
 
@@ -80,7 +89,15 @@
 
 	<!-- JavaScript -->
 	<script src="${js}/jquery.js"></script>
+	
+	<!-- Bootstrap Core JavaScript -->
 	<script src="${js}/bootstrap.js"></script>
+	
+	<!-- DataTable plugin -->
+	<script src="${js}/jquery.dataTables.js"></script>
+	
+	<!-- DataTable Bootstrap Script -->
+	<script src="${js}/dataTables.bootstrap.js"></script>
 
 	<!-- self coded js -->
 	<script src="${js}/myapp.js"></script>

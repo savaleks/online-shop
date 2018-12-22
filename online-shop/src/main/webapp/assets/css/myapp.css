@@ -64,8 +64,14 @@ custom styling
     padding-bottom: 60px; /*height og the footer */
 }
 
-.footer {
+.footer {   
     position: absolute;
     bottom: 10px;
     height: 60px;
+}
+
+/* doesn't work in myapp.js */
+.dataTableImg {
+    width: 100px;
+    height: 100px;
 }
