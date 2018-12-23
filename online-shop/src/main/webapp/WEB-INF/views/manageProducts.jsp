@@ -42,6 +42,7 @@
 							<div class="col-md-8">
 								<sf:input type="text" path="name" id="name"
 									placeholder="Product Name" class="form-control" />
+								<sf:errors path="name" cssClass="help-block" element="em"/>
 							</div>
 
 						</div>
@@ -53,6 +54,7 @@
 							<div class="col-md-8">
 								<sf:input type="text" path="brand" id="brand"
 									placeholder="Author Name" class="form-control" />
+								<sf:errors path="brand" cssClass="help-block" element="em"/>
 							</div>
 
 						</div>
@@ -62,6 +64,7 @@
 							<div class="col-md-8">
 								<sf:textarea path="description" class="form-control"
 									placeholder="Enter your description here!" /> 
+								<sf:errors path="description" cssClass="help-block" element="em"/>
 							</div>
 
 						</div>
@@ -73,6 +76,7 @@
 							<div class="col-md-8">
 								<sf:input type="number" path="unitPrice" id="unitPrice"
 									placeholder="Price in &#8364" class="form-control" />
+								<sf:errors path="unitPrice" cssClass="help-block" element="em"/>
 							</div>
 
 						</div>
