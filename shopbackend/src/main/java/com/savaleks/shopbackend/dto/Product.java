@@ -7,8 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+
+import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -20,11 +23,9 @@ public class Product {
 	private int id;
 	private String code;
 	@NotNull
-	@Min(value = 1, message = "The field cannot be empty")
 	private String name;
 	@Column(name = "author")
 	@NotNull
-	@Min(value = 1, message = "The field cannot be empty")
 	private String brand;
 	@JsonIgnore
 	@NotNull
@@ -45,12 +46,24 @@ public class Product {
 	private int purchases;
 	private int views;
 
+	@Transient
+	private MultipartFile file;
+
 	// default constructor
 	public Product() {
 		this.code = "PRD" + UUID.randomUUID().toString().substring(26).toUpperCase();
 	}
 
 	// getters and setters
+
+	public MultipartFile getFile() {
+		return file;
+	}
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
+
 	public int getId() {
 		return id;
 	}
