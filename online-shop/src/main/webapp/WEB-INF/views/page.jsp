@@ -27,7 +27,7 @@
 </script>
 
 <!-- Bootstrap core CSS -->
-<link href="${css}/bootstrap.css" rel="stylesheet">
+<link href="${css}/bootstrap.min.css" rel="stylesheet">
 
 <!-- Bootstrap Readable theme -->
 <link href="${css}/bootstrap-spacelab-theme.css" rel="stylesheet">
@@ -103,6 +103,9 @@
 	
 	<!-- DataTable Bootstrap Script -->
 	<script src="${js}/dataTables.bootstrap.js"></script>
+	
+	<!-- Bootbox -->
+	<script src="${js}/bootbox.min.js"></script>
 
 	<!-- self coded js -->
 	<script src="${js}/myapp.js"></script>
