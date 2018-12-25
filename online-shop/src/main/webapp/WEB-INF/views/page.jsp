@@ -66,17 +66,18 @@
 			<c:if test="${userClickContact == true}">
 				<%@include file="contact.jsp"%>
 			</c:if>
-			
+
 			<!-- Load when user click product list -->
-			<c:if test="${userClickAllProducts == true or userClickCategoryProducts == true}">
+			<c:if
+				test="${userClickAllProducts == true or userClickCategoryProducts == true}">
 				<%@include file="productList.jsp"%>
 			</c:if>
-			
+
 			<!-- Load when user clicks show product -->
 			<c:if test="${userClickShowProduct == true}">
 				<%@include file="singleProduct.jsp"%>
 			</c:if>
-			
+
 			<!-- Load when user clicks manage products -->
 			<c:if test="${userClickManageProducts == true}">
 				<%@include file="manageProducts.jsp"%>
@@ -94,16 +95,19 @@
 
 	<!-- JavaScript -->
 	<script src="${js}/jquery.js"></script>
-	
+
+	<!-- JQuery Validator -->
+	<script src="${js}/jquery.validate.js"></script>
+
 	<!-- Bootstrap Core JavaScript -->
 	<script src="${js}/bootstrap.js"></script>
-	
+
 	<!-- DataTable plugin -->
 	<script src="${js}/jquery.dataTables.js"></script>
-	
+
 	<!-- DataTable Bootstrap Script -->
 	<script src="${js}/dataTables.bootstrap.js"></script>
-	
+
 	<!-- Bootbox -->
 	<script src="${js}/bootbox.min.js"></script>
 
