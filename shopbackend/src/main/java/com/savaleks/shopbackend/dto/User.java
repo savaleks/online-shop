@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "user_details")
@@ -24,17 +26,34 @@ public class User implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@Column(name = "first_name")
+	@NotBlank(message = "Please enter the name")
 	private String firstName;
 	@Column(name = "last_name")
+	@NotBlank(message = "Please enter the last name")
 	private String lastName;
+	@NotBlank(message = "Please enter email address")
 	private String email;
 	@Column(name = "contact_number")
+	@NotBlank(message = "Please enter phone number")
 	private String contactNumber;
 	private String role;
+	@NotBlank(message = "Please enter password")
 	private String password;
 	private boolean enabled = true;
 	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
 	private Cart cart;
+
+	// confirm password transient field
+	@Transient
+	private String confirmPassword;
+
+	public String getConfirmPassword() {
+		return confirmPassword;
+	}
+
+	public void setConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
+	}
 
 	// getters and setters
 	public int getId() {

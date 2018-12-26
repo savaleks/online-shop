@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class Address implements Serializable {
@@ -23,13 +24,17 @@ public class Address implements Serializable {
 	@Column(name = "user_id")
 	private int userId;
 	@Column(name = "address_line_one")
+	@NotBlank(message = "Please enter an address")
 	private String addressLineOne;
 	@Column(name = "address_line_two")
 	private String addressLineTwo;
+	@NotBlank(message = "Please enter the city")
 	private String city;
 	private String state;
+	@NotBlank(message = "Please enter the country")
 	private String country;
 	@Column(name = "post_code")
+	@NotBlank(message = "Please enter post code")
 	private String postalCode;
 	private boolean shipping;
 	private boolean billing;
