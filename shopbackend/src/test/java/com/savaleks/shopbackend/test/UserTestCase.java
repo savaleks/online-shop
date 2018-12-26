@@ -28,60 +28,75 @@ public class UserTestCase {
 		userDAO = (UserDAO) context.getBean("userDAO");
 	}
 
+	/*
+	 * @Test public void testAdd() { user = new User(); user.setFirstName("Alex");
+	 * user.setLastName("Smith"); user.setEmail("alex@mail.com");
+	 * user.setContactNumber("86954123"); user.setRole("USER");
+	 * user.setPassword("1234");
+	 * 
+	 * // add an user assertEquals("Failed to add an user", true,
+	 * userDAO.addUser(user));
+	 * 
+	 * address = new Address(); address.setAddressLineOne("Vilniaus g.");
+	 * address.setAddressLineTwo("2-54"); address.setCity("Medininkai");
+	 * address.setState("Vilniaus r."); address.setCountry("Lithuania");
+	 * address.setPostalCode("LT-13569"); address.setBilling(true);
+	 * 
+	 * address.setUserId(user.getId());
+	 * 
+	 * // add an address assertEquals("Failed to add an address", true,
+	 * userDAO.addAddress(address));
+	 * 
+	 * if (user.getRole().equals("USER")) {
+	 * 
+	 * // create a cart for this user cart = new Cart(); cart.setUser(user);
+	 * 
+	 * // add an address assertEquals("Failed to add a cart", true,
+	 * userDAO.addCart(cart));
+	 * 
+	 * // add a shipping addres for this user
+	 * 
+	 * address = new Address(); address.setAddressLineOne("Sodu g.");
+	 * address.setAddressLineTwo("1-24"); address.setCity("Rukainiai");
+	 * address.setState("Vilniaus r."); address.setCountry("Lithuania");
+	 * address.setPostalCode("LT-13559"); // set shipping to true
+	 * address.setBilling(true);
+	 * 
+	 * // link it with user address.setUserId(user.getId());
+	 * 
+	 * // add the shipping address assertEquals("Failed to add shipping address",
+	 * true, userDAO.addAddress(address)); } }
+	 */
+
+	/*
+	 * @Test public void testAdd() { user = new User(); user.setFirstName("Alex");
+	 * user.setLastName("Smith"); user.setEmail("alex@mail.com");
+	 * user.setContactNumber("86954123"); user.setRole("USER");
+	 * user.setPassword("1234");
+	 * 
+	 * if (user.getRole().equals("USER")) {
+	 * 
+	 * // create a cart for this user cart = new Cart(); cart.setUser(user);
+	 * 
+	 * // attach cart with the user user.setCart(cart);
+	 * 
+	 * } // add an user assertEquals("Failed to add an user", true,
+	 * userDAO.addUser(user)); }
+	 */
+
 	@Test
-	public void testAdd() {
-		user = new User();
-		user.setFirstName("Alex");
-		user.setLastName("Smith");
-		user.setEmail("alex@mail.com");
-		user.setContactNumber("86954123");
-		user.setRole("USER");
-		user.setPassword("1234");
+	public void testUpdateCart() {
+		// fetch the user by email
+		user = userDAO.getByEmail("alex@mail.com");
 
-		// add an user
-		assertEquals("Failed to add an user", true, userDAO.addUser(user));
+		// get the cart of the user
+		cart = user.getCart();
 
-		address = new Address();
-		address.setAddressLineOne("Vilniaus g.");
-		address.setAddressLineTwo("2-54");
-		address.setCity("Medininkai");
-		address.setState("Vilniaus r.");
-		address.setCountry("Lithuania");
-		address.setPostalCode("LT-13569");
-		address.setBilling(true);
+		cart.setGrandTotal(9999);
 
-		address.setUserId(user.getId());
+		cart.setCartLines(2);
 
-		// add an address
-		assertEquals("Failed to add an address", true, userDAO.addAddress(address));
-
-		if (user.getRole().equals("USER")) {
-
-			// create a cart for this user
-			cart = new Cart();
-			cart.setUser(user);
-
-			// add an address
-			assertEquals("Failed to add a cart", true, userDAO.addCart(cart));
-
-			// add a shipping addres for this user
-
-			address = new Address();
-			address.setAddressLineOne("Sodu g.");
-			address.setAddressLineTwo("1-24");
-			address.setCity("Rukainiai");
-			address.setState("Vilniaus r.");
-			address.setCountry("Lithuania");
-			address.setPostalCode("LT-13559");
-			// set shipping to true
-			address.setBilling(true);
-
-			// link it with user
-			address.setUserId(user.getId());
-
-			// add the shipping address
-			assertEquals("Failed to add shipping address", true, userDAO.addAddress(address));
-		}
-
+		assertEquals("Failed to update the cart", true, userDAO.updateCart(cart));
 	}
+
 }

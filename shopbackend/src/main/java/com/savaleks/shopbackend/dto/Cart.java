@@ -1,5 +1,7 @@
 package com.savaleks.shopbackend.dto;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,8 +10,12 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Cart {
+public class Cart implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	// fields
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -57,10 +63,8 @@ public class Cart {
 		this.cartLines = cartLines;
 	}
 
-	// toString for logging and debbuging activity
 	@Override
 	public String toString() {
-		return "Cart [id=" + id + ", userId=" + userId + ", grandTotal=" + grandTotal + ", cartLines=" + cartLines
-				+ "]";
+		return "Cart [id=" + id + ", user=" + user + ", grandTotal=" + grandTotal + ", cartLines=" + cartLines + "]";
 	}
 }

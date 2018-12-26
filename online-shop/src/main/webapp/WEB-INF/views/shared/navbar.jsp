@@ -23,6 +23,15 @@
 
 				<li id="contact"><a href="${contextRoot}/contact">Contact</a></li>
 			</ul>
+			
+			<ul class="nav navbar-nav navbar-right">
+			
+				<li id="register"><a href="${contextRoot}/register">Register</a></li>
+				
+				<li id="login"><a href="${contextRoot}/login">Login</a></li>
+			
+			</ul>
+			
 		</div>
 		<!-- /.navbar-collapse -->
 	</div>

@@ -1,5 +1,7 @@
 package com.savaleks.shopbackend.dto;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,12 +9,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Address {
+public class Address implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	// fields
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	// was oneToMany User user
 	@Column(name = "user_id")
 	private int userId;
 	@Column(name = "address_line_one")
@@ -108,7 +115,6 @@ public class Address {
 		this.billing = billing;
 	}
 
-	// toString for logging and debbuging activity
 	@Override
 	public String toString() {
 		return "Address [id=" + id + ", userId=" + userId + ", addressLineOne=" + addressLineOne + ", addressLineTwo="
