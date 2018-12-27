@@ -28,17 +28,17 @@
     </action-state>
 
     <view-state id="billing" view="flows/register/signup-billing" model="billing">
-        <transition on="personal" to="personal"/>
         <transition on="confirm" to="confirm"/>
+        <transition on="personal" to="personal"/>
         <on-exit>
             <evaluate expression="registerHandler.addBilling(flowScope.registerModel, billing)"/>
         </on-exit>
     </view-state>
 
     <view-state id="confirm" view="flows/register/signup-confirm" model="flowScope.registerModel">
+        <transition on="submit" to="submit"/>
+        <transition on="billing" to="billing"/>  
         <transition on="personal" to="personal"/>
-        <transition on="billing" to="billing"/>
-        <transition on="submit" to="submit"/>  
     </view-state>
 
     <action-state id="submit">
@@ -47,12 +47,12 @@
     </action-state>
 
     <!-- END STATE -->
-    <end-state id="home" view="externalRedirect:contextRelative:/"/>
     <end-state id="success" view="flows/register/signup-success"/>
+    <end-state id="home" view="externalRedirect:contextRelative:/"/>
 
     <!-- GLOBAL TRANSITION -->
-    <global-transitions>
-        <transition on="home" to="home" validate="false"/>
-    </global-transitions>
+	<global-transitions>
+		<transition on="home" to="home" validate="false" />
+	</global-transitions>
 
 </flow>

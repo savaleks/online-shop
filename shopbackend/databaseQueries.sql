@@ -30,7 +30,7 @@ CREATE TABLE user_details (
 
 INSERT INTO user_details
 (first_name, last_name, role, enabled, password, email, contact_number)
-VALUES ('Alex', 'Sky', 'ADMIN', true, 'admin', 'alex@gmail.com', '999999999');
+VALUES ('Alex', 'Sky', 'USER', true, 'admin', 'alex@gmail.com', '999999999');
 
 INSERT INTO user_details
 (first_name, last_name, role, enabled, password, email, contact_number)
