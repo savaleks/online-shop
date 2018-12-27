@@ -22,7 +22,7 @@ CREATE TABLE user_details (
 	last_name VARCHAR(50),
 	role VARCHAR(50),
 	enabled BOOLEAN,
-	password VARCHAR(50),
+	password VARCHAR(60),
 	email VARCHAR(100),
 	contact_number VARCHAR(15),
 	CONSTRAINT pk_user_id PRIMARY KEY(id)
@@ -30,15 +30,15 @@ CREATE TABLE user_details (
 
 INSERT INTO user_details
 (first_name, last_name, role, enabled, password, email, contact_number)
-VALUES ('Alex', 'Sky', 'USER', true, 'admin', 'alex@gmail.com', '999999999');
+VALUES ('Alex', 'Sky', 'USER', true, '$2y$12$u1svJu2B7c1eRzHju1tWke71ydHzx.G/U8QQBKWeYQkb8IhcCVn.C', 'alex@gmail.com', '999999999');
 
 INSERT INTO user_details
 (first_name, last_name, role, enabled, password, email, contact_number)
-VALUES ('Jonas', 'Jonaitis', 'SUPPLIER', true, '12345', 'jonas@gmail.com', '888899999');
+VALUES ('Jonas', 'Jonaitis', 'SUPPLIER', true, '$2y$12$MflMRdRpwrmNhPejveR92eU9fbr12SWWf3ghzxFbm44BVHQXVd1QS', 'jonas@gmail.com', '888899999');
 
 INSERT INTO user_details
 (first_name, last_name, role, enabled, password, email, contact_number)
-VALUES ('Petras', 'Petraitis', 'SUPPLIER', true, '12345', 'petras@gmail.com', '777799999');
+VALUES ('Petras', 'Petraitis', 'SUPPLIER', true, '$2y$12$ZhZg4EFKDksCTbem81b52elTNTdiPqrT6R1Z21PXy2jd9ZXp8yy2.', 'petras@gmail.com', '777799999');
 
 CREATE TABLE product (
 	id IDENTITY,

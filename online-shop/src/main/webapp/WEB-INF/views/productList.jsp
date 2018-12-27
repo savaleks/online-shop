@@ -52,38 +52,48 @@
 
 				<div class="col-xs-12">
 
-					<table id="productListTable"
-						class="table table-striped table-borderd">
+					<div class="container-fluid">
 
-						<thead>
+						<div class="table-responsive">
 
-							<tr>
-								<th></th>
-								<th>Name</th>
-								<th>Author</th>
-								<th>Price</th>
-								<th>Qty.available</th>
-								<th></th>
+							<table id="productListTable"
+								class="table table-striped table-borderd">
 
-							</tr>
+								<thead>
 
-						</thead>
+									<tr>
+										<th></th>
+										<th>Name</th>
+										<th>Author</th>
+										<th>Price</th>
+										<th>Qty.available</th>
+										<th></th>
 
-						<tfoot>
-						
-						<tr>
-							<th></th>
-							<th>Name</th>
-							<th>Author</th>
-							<th>Price</th>
-							<th>Qty.available</th>
-							<th></th>
+									</tr>
 
-						</tr>
+								</thead>
 
-						</tfoot>
+								<tfoot>
 
-					</table>
+									<tr>
+										<th></th>
+										<th>Name</th>
+										<th>Author</th>
+										<th>Price</th>
+										<th>Qty.available</th>
+										<th></th>
+
+									</tr>
+
+								</tfoot>
+
+							</table>
+
+						</div>
+
+					</div>
+
+
 
 				</div>
 

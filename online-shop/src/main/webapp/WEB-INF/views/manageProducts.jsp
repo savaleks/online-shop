@@ -164,41 +164,47 @@
 	</div>
 
 	<div class="col-xs-12">
+		<div class="container-fluid">
 
-		<div style="overflow: auto">
+			<div class="table-responsive">
 
-			<!-- Product table for admin -->
+				<table id="adminProductsTable"
+					class="table table-condensed table-bordered">
 
-			<table id="adminProductsTable"
-				class="table table-condensed table-bordered">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>&#160;</th>
+							<th>Name</th>
+							<th>Brand</th>
+							<th>Qty. Avail</th>
+							<th>Unit Price</th>
+							<th>Activate</th>
+							<th>Edit</th>
+						</tr>
+					</thead>
 
-				<thead>
-					<tr>
-						<th>Id</th>
-						<th>&#160;</th>
-						<th>Name</th>
-						<th>Brand</th>
-						<th>Qty. Avail</th>
-						<th>Unit Price</th>
-						<th>Activate</th>
-						<th>Edit</th>
-					</tr>
-				</thead>
+					<tfoot>
+						<tr>
+							<th>Id</th>
+							<th>&#160;</th>
+							<th>Name</th>
+							<th>Brand</th>
+							<th>Qty. Avail</th>
+							<th>Unit Price</th>
+							<th>Activate</th>
+							<th>Edit</th>
+						</tr>
+					</tfoot>
+				</table>
 
-				<tfoot>
-					<tr>
-						<th>Id</th>
-						<th>&#160;</th>
-						<th>Name</th>
-						<th>Brand</th>
-						<th>Qty. Avail</th>
-						<th>Unit Price</th>
-						<th>Activate</th>
-						<th>Edit</th>
-					</tr>
-				</tfoot>
-			</table>
+			</div>
+
 		</div>
+
+		<!-- Product table for admin -->
+
+
 	</div>
 </div>
 
@@ -239,7 +245,7 @@
 
 					<div class="form-group">
 						<div class="col-md-offset-4 col-md-8">
-							<input type="submit" value="Add Category" class="btn btn-primary"/>
+							<input type="submit" value="Add Category" class="btn btn-primary" />
 						</div>
 					</div>
 

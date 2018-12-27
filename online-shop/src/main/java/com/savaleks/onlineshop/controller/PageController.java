@@ -1,8 +1,14 @@
 package com.savaleks.onlineshop.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -127,11 +133,16 @@ public class PageController {
 
 	// for login
 	@RequestMapping(value = "/login")
-	public ModelAndView login(@RequestParam(name = "error", required = false) String error) {
+	public ModelAndView login(@RequestParam(name = "error", required = false) String error,
+			@RequestParam(name = "logout", required = false) String logout) {
 		ModelAndView modview = new ModelAndView("login");
 
 		if (error != null) {
 			modview.addObject("message", "Invalid Username or Password");
+		}
+
+		if (logout != null) {
+			modview.addObject("logout", "User has logged out");
 		}
 
 		modview.addObject("title", "Login");
@@ -146,6 +157,20 @@ public class PageController {
 		modview.addObject("errorTitle", "I Caught you redhanded");
 		modview.addObject("errorDescription", "You are not authorized for this page");
 		return modview;
+	}
+
+	// Logout
+	@RequestMapping(value = "/perform-logout")
+	public String logout(HttpServletRequest request, HttpServletResponse response) {
+
+		// going to fetch the authentication
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+		if (authentication != null) {
+			new SecurityContextLogoutHandler().logout(request, response, authentication);
+		}
+
+		return "redirect:/login?logout";
 	}
 
 }
