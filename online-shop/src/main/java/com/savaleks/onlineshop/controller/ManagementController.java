@@ -39,10 +39,10 @@ public class ManagementController {
 	private static final Logger LOGGER = LoggerFactory.getLogger(ManagementController.class);
 
 	@RequestMapping(value = "/products", method = RequestMethod.GET)
-	public ModelAndView showManageProducts(@RequestParam(name = "opeartion", required = false) String operation) {
+	public ModelAndView showManageProducts(@RequestParam(name = "operation", required = false) String operation) {
 		ModelAndView model = new ModelAndView("page");
-		model.addObject("userClickManageProducts", true);
 		model.addObject("title", "Manage Products");
+		model.addObject("userClickManageProducts", true);
 
 		Product newProduct = new Product();
 		newProduct.setSupplierId(1);

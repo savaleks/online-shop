@@ -16,31 +16,16 @@ public class Cart implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	// fields
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	// ----------------
-	@OneToOne
-	private User user;
-	// ----------------
 	@Column(name = "grand_total")
 	private double grandTotal;
 	@Column(name = "cart_lines")
 	private int cartLines;
 
-	// getters and setters
-
 	public int getId() {
 		return id;
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
 	}
 
 	public void setId(int id) {
@@ -65,6 +50,19 @@ public class Cart implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Cart [id=" + id + ", user=" + user + ", grandTotal=" + grandTotal + ", cartLines=" + cartLines + "]";
+		return "Cart [id=" + id + ", grandTotal=" + grandTotal + ", cartLines=" + cartLines + "]";
 	}
+
+	// linking the cart with a user
+	@OneToOne
+	private User user;
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 }

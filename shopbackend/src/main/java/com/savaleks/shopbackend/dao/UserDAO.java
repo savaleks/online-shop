@@ -3,7 +3,6 @@ package com.savaleks.shopbackend.dao;
 import java.util.List;
 
 import com.savaleks.shopbackend.dto.Address;
-import com.savaleks.shopbackend.dto.Cart;
 import com.savaleks.shopbackend.dto.User;
 
 public interface UserDAO {
@@ -19,8 +18,5 @@ public interface UserDAO {
 	Address getBillingAddress(User user);
 
 	List<Address> listShippingAddresses(User user);
-
-	// update a cart
-	boolean updateCart(Cart cart);
 
 }
